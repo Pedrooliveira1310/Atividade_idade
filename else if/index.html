@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    body {
+        background: #000;
+        color: #fff;
+        font-family: 'Courier New', Courier, monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .box {
+        background: #111;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    input {
+        background: #222;
+        border: none;
+        padding: 10px;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    button {
+        background: #333;
+        border: none;
+        padding: 10px 20px;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    </style>
+
+    <div class="box">
+        <h2>Classificador de indicação</h2>
+        <input type="number" id="nota" placeholder="Digite a nota (0-10)">
+        <button onclick="analisar()">Analisar Nota</button>
+        <p id="feedback"></p>
+    </div>
+
+    <script>
+        function analisar() {
+            let nota = Number(document.getElementById('nota').value);
+            let feedback = document.getElementById('feedback');
+            
+            
+            if (nota >= 9) {
+                feedback.innerHTML = "Excelente! Recomendado para todos.";
+                feedback.style.color = "green";
+            }
+
+            else if (nota >= 7) {
+                feedback.innerHTML = "Bom! Recomendado para a maioria.";
+                feedback.style.color = "blue";
+            }
+
+            else if (nota >= 5) {
+                feedback.innerHTML = "Regular. Pode ser recomendado com ressalvas.";
+                feedback.style.color = "orange";
+            }
+
+            else if (nota >= 0) {
+                feedback.innerHTML = "Ruim. Não recomendado.";
+                feedback.style.color = "red";
+            }
+            else {
+                feedback.innerHTML = "Nota inválida. Digite um número entre 0 e 10.";
+                feedback.style.color = "yellow";
+            }
+
+        }
+
+    </script>
+</body>
+</html>
